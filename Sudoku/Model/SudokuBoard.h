@@ -11,7 +11,8 @@
 @interface SudokuBoard : NSObject
 
 - (id) initWithSquareSize: (NSUInteger) squareSize;
-- (instancetype) initWith2DArray: (NSArray*) fieldsArray;
+
+- (id)initWith2DArray:(NSArray *)fieldsArray error:(NSError **)error;
 
 - (BOOL) addNumber:(NSNumber *)number toRow:(NSUInteger)row column: (NSUInteger) col;
 - (BOOL) addNumber:(NSNumber *)number toField:(NSUInteger) fIndex;

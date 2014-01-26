@@ -43,8 +43,8 @@ static CGFloat spacing = 2.0f;
                                @[@0, @0, @9, @3, @0, @0, @0, @7, @4],
                                @[@0, @4, @0, @0, @5, @0, @0, @3, @6],
                                @[@7, @0, @3, @0, @1, @8, @0, @0, @0]];
-    
-    if (!(self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray])) {
+    NSError *error = nil;
+    if (!(self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray error:&error])) {
         [NSException raise:@"Could not initialize the board" format:@"the fieldsArray could be corrupt: \n%@", fieldsArray];
     }
     self.squareSize = fieldsArray.count;

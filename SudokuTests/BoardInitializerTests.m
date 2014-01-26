@@ -43,8 +43,8 @@
                               @[@4, @5, @1, @2, @3],
                               @[@3, @4, @5, @1, @2],
                               @[@2, @3, @4, @5, @1]];
-    
-    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray];
+    NSError *error = nil;
+    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray error:&error ];
     XCTAssertNotNil(self.board);
     XCTAssertTrue([[self.board numberInRow:2 column:3] isEqualToNumber:@2]);
     XCTAssertTrue([[self.board numberInRow:0 column:0] isEqualToNumber:@1]);
@@ -59,8 +59,8 @@
                               @[@4, @5, @1, @2, @3],
                               @[@3, @4, @5, @1, @2],
                               @[@2, @3, @4, @5, @1]];
-    
-    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray];
+    NSError *error = nil;
+    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray error:&error ];
     XCTAssertNil(self.board);
 }
 
@@ -70,8 +70,8 @@
                               @[@4, @5, @1, @2, @3],
                               @[@3, @4, @5, @1, @2],
                               @[@2, @3, @4, @5, @0]];
-    
-    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray];
+    NSError *error = nil;
+    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray error:&error ];
     XCTAssertNotNil(self.board);
     XCTAssertTrue([self.board isEditableFieldAtIndex:24]);
     XCTAssertTrue([self.board isEditableFieldAtIndex:5]);
@@ -93,7 +93,8 @@
                                @[@0, @0, @9, @3, @0, @0, @0, @7, @4],
                                @[@0, @4, @0, @0, @5, @0, @0, @3, @6],
                                @[@7, @0, @3, @0, @1, @8, @0, @0, @0]];
-    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray];
+    NSError *error = nil;
+    self.board = [[SudokuBoard alloc] initWith2DArray:fieldsArray error:&error];
     XCTAssertNotNil(self.board);
 }
 
